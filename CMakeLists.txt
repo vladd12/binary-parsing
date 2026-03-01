@@ -34,6 +34,9 @@ set(BINPARSING_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(BINPARSING_SOURCES
   "${BINPARSING_INCLUDE_DIR}/binary-parsing/export.hpp"
   "${BINPARSING_INCLUDE_DIR}/binary-parsing/binary-parsing.hpp"
+  "${BINPARSING_INCLUDE_DIR}/binary-parsing/common/byte_array.hpp"
+  "${BINPARSING_INCLUDE_DIR}/binary-parsing/common/types.hpp"
+  "${BINPARSING_INCLUDE_DIR}/binary-parsing/elf/core.hpp"
   "${BINPARSING_SOURCES_DIR}/binary-parsing.cpp"
 )
 
