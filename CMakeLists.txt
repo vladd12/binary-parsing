@@ -27,7 +27,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Library's options
 option(BINPARSING_STATIC_BUILD "Build binary-parsing as static library" ON)
-option(BINPARSING_BUILD_TESTS  "Build tests for binary-parsing library" ON) # TODO
+option(BINPARSING_BUILD_TESTS  "Build tests for binary-parsing library" ON)
 
 set(BINPARSING_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(BINPARSING_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -56,3 +56,10 @@ target_include_directories(binary_parsing PUBLIC
   "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 add_library(binary::parsing ALIAS binary_parsing)
+
+# Tests targets
+if(BINPARSING_BUILD_TESTS)
+  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+  include(get_gtest)
+  add_subdirectory(tests)
+endif()
